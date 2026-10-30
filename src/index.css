@@ -1,22 +1,59 @@
 @import 'tailwindcss';
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --font-sans: 'Inter', 'IBM Plex Sans Thai', ui-sans-serif, system-ui, sans-serif;
 
-  --color-pudding-50: #fffbeb;
-  --color-pudding-100: #fef3c7;
-  --color-pudding-200: #fde68a;
-  --color-pudding-300: #fcd34d;
-  --color-pudding-500: #f59e0b;
-  --color-caramel: #92400e;
+  /* Semantic tokens: values switch between light and dark below. */
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-subtle: var(--subtle);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-muted: var(--muted);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-wash: var(--brand-wash);
+  --color-brand-line: var(--brand-line);
 
-  --color-siit-blue: #1e3a8a;
-  --color-siit-blue-dark: #172554;
-  --color-siit-blue-light: #dbeafe;
-  --color-siit-red: #b91c1c;
-
-  --color-soft-bg: #f8fafc;
   --color-line-green: #06c755;
+}
+
+:root {
+  --canvas: #f8fafc;
+  --surface: #ffffff;
+  --subtle: #f1f5f9;
+  --line: #e2e8f0;
+  --ink: #0f172a;
+  --body: #475569;
+  --muted: #64748b;
+  --brand: #b45309;
+  --brand-strong: #92400e;
+  --brand-soft: #fef3c7;
+  --brand-wash: #fffbeb;
+  --brand-line: #fde68a;
+  --dot: #cbd5e1;
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: #020617;
+  --surface: #0f172a;
+  --subtle: #1e293b;
+  --line: #1e293b;
+  --ink: #f8fafc;
+  --body: #cbd5e1;
+  --muted: #94a3b8;
+  --brand: #fbbf24;
+  --brand-strong: #fcd34d;
+  --brand-soft: #451a03;
+  --brand-wash: rgb(69 26 3 / 0.4);
+  --brand-line: rgb(146 64 14 / 0.6);
+  --dot: #1e293b;
+  color-scheme: dark;
 }
 
 @layer base {
@@ -26,7 +63,7 @@
   }
 
   body {
-    @apply bg-soft-bg font-sans text-slate-700 antialiased;
+    @apply bg-canvas font-sans text-body antialiased transition-colors;
     line-height: 1.7;
   }
 
@@ -34,12 +71,12 @@
   h2,
   h3,
   h4 {
-    @apply text-slate-900;
+    @apply text-ink;
     line-height: 1.3;
   }
 
   ::selection {
-    @apply bg-pudding-200 text-siit-blue-dark;
+    @apply bg-amber-200 text-slate-950;
   }
 }
 

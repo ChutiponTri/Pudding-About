@@ -1,21 +1,17 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { APP_URL, NAV_LINKS } from '../constants.ts'
+import ThemeToggle from './ThemeToggle.tsx'
 import { PuddingLogo } from './ui.tsx'
+
+const ctaClass =
+  'items-center gap-1.5 rounded-full bg-amber-500 font-bold text-slate-950 shadow-sm shadow-amber-500/30 transition-all hover:bg-amber-400 active:scale-[0.98]'
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const { pathname } = useLocation()
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
 
   // On the home page, scroll in place instead of routing so repeat clicks still work.
   const handleSectionClick = (id: string) => (e: React.MouseEvent) => {
@@ -29,29 +25,30 @@ export default function Navbar() {
   }
 
   return (
-    <header
-      className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled || open
-          ? 'border-slate-200 bg-white/90 shadow-sm backdrop-blur-md'
-          : 'border-transparent bg-white/60 backdrop-blur-sm'
-      }`}
-    >
-      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:h-[72px] lg:px-8">
-        <Link to="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-colors supports-[backdrop-filter]:bg-white/65 dark:border-slate-800/80 dark:bg-slate-950/75 dark:supports-[backdrop-filter]:bg-slate-950/60">
+      <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-3 sm:gap-4 sm:px-6 lg:px-8">
+        <Link to="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3" onClick={() => setOpen(false)}>
           <PuddingLogo />
-          <span className="flex flex-col leading-tight">
-            <span className="text-lg font-bold text-siit-blue">Pudding</span>
-            <span className="text-[11px] text-slate-500 sm:text-xs">ระบบจัดการ Assignment & Quiz</span>
+          <span className="min-w-0">
+            <span className="flex items-center gap-1.5">
+              <span className="truncate text-base font-black tracking-tight text-ink sm:text-lg">Pudding</span>
+              <span className="hidden rounded-md border border-brand-line bg-brand-soft px-1.5 py-0.5 text-[10px] font-bold text-amber-800 sm:inline-block sm:text-[11px] dark:text-amber-300">
+                Platform
+              </span>
+            </span>
+            <span className="line-clamp-1 hidden text-[11px] font-medium text-muted min-[420px]:block">
+              ระบบจัดการ Assignment & Quiz
+            </span>
           </span>
         </Link>
 
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 xl:flex">
           {NAV_LINKS.map((link) => (
             <li key={link.id}>
               <Link
                 to={`/#${link.id}`}
                 onClick={handleSectionClick(link.id)}
-                className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 transition-colors hover:bg-pudding-50 hover:text-siit-blue"
+                className="rounded-xl px-3 py-2 text-sm font-medium text-body transition-colors hover:bg-subtle hover:text-ink"
               >
                 {link.label}
               </Link>
@@ -59,12 +56,13 @@ export default function Navbar() {
           ))}
         </ul>
 
-        <div className="flex items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+          <ThemeToggle />
           <a
             href={APP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden items-center gap-1.5 rounded-xl bg-siit-blue px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-siit-blue-dark sm:inline-flex"
+            className={`hidden px-4 py-2 text-xs sm:inline-flex sm:text-sm ${ctaClass}`}
           >
             เข้าสู่ระบบการทำงาน
             <ArrowUpRight className="h-4 w-4" />
@@ -72,11 +70,11 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
-            className="rounded-lg p-2 text-slate-700 hover:bg-slate-100 lg:hidden"
+            className="cursor-pointer rounded-xl p-2 text-body transition-colors hover:bg-subtle hover:text-ink xl:hidden"
             aria-label={open ? 'ปิดเมนู' : 'เปิดเมนู'}
             aria-expanded={open}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </nav>
@@ -88,15 +86,15 @@ export default function Navbar() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="overflow-hidden border-t border-slate-100 bg-white lg:hidden"
+            className="overflow-hidden border-t border-line xl:hidden"
           >
-            <ul className="space-y-1 px-4 py-4 sm:px-6">
+            <ul className="space-y-1 px-3 py-4 sm:px-6">
               {NAV_LINKS.map((link) => (
                 <li key={link.id}>
                   <Link
                     to={`/#${link.id}`}
                     onClick={handleSectionClick(link.id)}
-                    className="block rounded-lg px-3 py-2.5 font-medium text-slate-700 hover:bg-pudding-50 hover:text-siit-blue"
+                    className="block rounded-xl px-3 py-2.5 font-medium text-body hover:bg-subtle hover:text-ink"
                   >
                     {link.label}
                   </Link>
@@ -107,7 +105,7 @@ export default function Navbar() {
                   href={APP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1.5 rounded-xl bg-siit-blue px-4 py-3 font-semibold text-white"
+                  className={`flex justify-center px-4 py-3 ${ctaClass}`}
                 >
                   เข้าสู่ระบบการทำงาน
                   <ArrowUpRight className="h-4 w-4" />

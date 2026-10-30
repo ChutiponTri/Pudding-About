@@ -10,7 +10,16 @@
       content="แพลตฟอร์มจัดการ Assignment & Quiz ผ่าน LINE โดยโครงการวิจัยระดับปริญญาเอก SIIT มธ."
     />
     <meta name="author" content="Chutipon Trirattananurak (SIIT, Thammasat University)" />
-    <meta name="theme-color" content="#1E3A8A" />
+    <meta name="theme-color" content="#f59e0b" />
+    <script>
+      // Apply the saved or system theme before first paint to avoid a light flash.
+      try {
+        const saved = localStorage.getItem('theme')
+        if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark')
+        }
+      } catch {}
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="th_TH" />

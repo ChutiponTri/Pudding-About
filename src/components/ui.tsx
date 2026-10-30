@@ -34,24 +34,21 @@ export function SectionHeading({
 }) {
   return (
     <Reveal className="mx-auto mb-12 max-w-2xl text-center">
-      <p className="mb-3 text-sm font-semibold tracking-wider text-caramel uppercase">{eyebrow}</p>
+      <p className="mb-3 text-sm font-semibold tracking-wider text-brand-strong uppercase">{eyebrow}</p>
       <h2 className="text-3xl font-bold sm:text-4xl">{title}</h2>
-      {description && <p className="mt-4 text-lg text-slate-600">{description}</p>}
+      {description && <p className="mt-4 text-lg text-balance text-body">{description}</p>}
     </Reveal>
   )
 }
 
-export function PuddingLogo({ className = 'h-9 w-9' }: { className?: string }) {
+export function PuddingLogo({ size = 'md' }: { size?: 'md' | 'lg' }) {
+  const box = size === 'lg' ? 'h-11 w-11 text-2xl' : 'h-9 w-9 text-xl sm:h-10 sm:w-10 sm:text-2xl'
   return (
-    <svg viewBox="0 0 64 64" className={className} aria-hidden="true">
-      <rect width="64" height="64" rx="14" fill="#1E3A8A" />
-      <path d="M14 46h36l-4-22a6 6 0 0 0-6-5H24a6 6 0 0 0-6 5z" fill="#FCD34D" />
-      <path
-        d="M18 24a6 6 0 0 1 6-5h16a6 6 0 0 1 6 5l.6 3.4c-3 2.4-5.6-.6-8.2 1.2-2.6 1.8-4.8-1.6-7.4.4-2.6 2-5-1.6-7.6.2-2.2 1.5-4.6.4-6-1.6z"
-        fill="#92400E"
-      />
-      <rect x="10" y="45" width="44" height="5" rx="2.5" fill="#FFFBEB" />
-      <circle cx="32" cy="15" r="3" fill="#DC2626" />
-    </svg>
+    <span
+      aria-hidden="true"
+      className={`flex shrink-0 items-center justify-center rounded-2xl bg-linear-to-tr from-amber-600 via-amber-500 to-yellow-400 shadow-md shadow-amber-500/25 transition-all duration-300 group-hover:scale-105 group-hover:-rotate-3 ${box}`}
+    >
+      <span className="transition-transform select-none group-hover:scale-110">🍮</span>
+    </span>
   )
 }

@@ -20,7 +20,53 @@ export const INSTITUTION = {
 export const NAV_LINKS = [
   { id: 'about', label: 'เกี่ยวกับโครงการ' },
   { id: 'features', label: 'ฟีเจอร์' },
+  { id: 'how-it-works', label: 'ขั้นตอนการใช้งาน' },
   { id: 'research', label: 'โครงงานวิจัย SIIT' },
-  { id: 'researcher', label: 'ผู้พัฒนา' },
+  { id: 'team', label: 'ทีมผู้พัฒนา' },
   { id: 'legal', label: 'นโยบายและข้อกำหนด' },
 ] as const
+
+export const TEAM = [
+  {
+    badge: 'Main Developer & Researcher',
+    nameTh: RESEARCHER.nameTh,
+    nameEn: RESEARCHER.nameEn,
+    roleTh: 'ผู้พัฒนาระบบหลักและนักวิจัย',
+    affiliationTh: INSTITUTION.nameTh,
+    affiliationEn: 'SIIT, Thammasat University',
+    duties: [
+      'นักศึกษาปริญญาเอก ผู้รับผิดชอบโครงการวิจัย',
+      'ออกแบบและพัฒนาระบบ Pudding ทั้งเว็บไซต์ LINE Bot และ LIFF',
+      'วิจัยอัลกอริทึมตรวจคำตอบสั้นภาษาไทย (ASAG)',
+      'ผู้ควบคุมข้อมูลส่วนบุคคลของโครงการ',
+    ],
+    email: CONTACT_EMAIL,
+    primary: true,
+  },
+  {
+    badge: 'Research Advisor',
+    nameTh: 'ผศ.ดร. ศศิพร อุษณวศิน',
+    nameEn: 'Asst. Prof. Sasiporn Usanavasin',
+    roleTh: 'อาจารย์ที่ปรึกษางานวิจัย',
+    affiliationTh: 'ภาควิชา ICT สถาบันเทคโนโลยีนานาชาติสิรินธร (SIIT) มหาวิทยาลัยธรรมศาสตร์',
+    affiliationEn: 'ICT Department, SIIT, Thammasat University',
+    duties: ['ให้คำปรึกษาและกำกับดูแลงานวิจัยของโครงการ'],
+    email: 'sasiporn.us@siit.tu.ac.th',
+    primary: false,
+  },
+  {
+    badge: 'Project Assistant',
+    nameTh: 'ธิปนรรจ์ จันทร์แก้ว',
+    nameEn: 'Tippanan Jankaew',
+    roleTh: 'ผู้ช่วยโครงการ / ครูผู้สอน',
+    affiliationTh: 'วิทยาลัยเทคนิคสุราษฎร์ธานี',
+    affiliationEn: 'Surat Thani Technical College',
+    duties: [
+      'ให้ข้อเสนอแนะในการพัฒนาระบบจากมุมมองครูผู้สอน',
+      'นำการทดลองใช้ระบบนำร่อง (Pilot Study) และการเก็บรวบรวมข้อมูล',
+      'ประสานงานกับสถานศึกษาและครูผู้สอนท่านอื่น',
+    ],
+    email: 'tippanan.jan@srtc.ac.th',
+    primary: false,
+  },
+]
