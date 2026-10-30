@@ -1,13 +1,8 @@
-import { Building2, Clock, Mail, MapPin, UserRound } from 'lucide-react'
+import { Building2, Clock, Mail, MapPin } from 'lucide-react'
+import { Fragment } from 'react'
 import { INSTITUTION, TEAM } from '../constants.ts'
 import { swipeItem, swipeRow } from './swipe.ts'
 import { Reveal, SectionHeading } from './ui.tsx'
-
-const AVATAR_STYLES = [
-  'bg-linear-to-tr from-amber-600 via-amber-500 to-yellow-400 text-white shadow-md shadow-amber-500/25',
-  'bg-slate-900 text-amber-400 dark:bg-slate-800',
-  'bg-brand-soft text-brand-strong',
-]
 
 export default function Team() {
   return (
@@ -27,21 +22,36 @@ export default function Team() {
                   member.primary ? 'border-brand-line ring-1 ring-amber-400/30' : 'border-line'
                 }`}
               >
-                <div className="flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
-                  <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${AVATAR_STYLES[i]}`}>
-                    <UserRound className="h-7 w-7" />
-                  </div>
+                <div className="flex items-start gap-4">
+                  <img
+                    src={member.photo}
+                    alt={`${member.nameTh} (${member.nameEn})`}
+                    width={400}
+                    height={500}
+                    loading="lazy"
+                    className={`aspect-[4/5] w-24 shrink-0 rounded-2xl bg-subtle object-cover shadow-sm sm:w-28 ${
+                      member.primary ? 'ring-2 ring-amber-400' : 'ring-1 ring-line'
+                    }`}
+                  />
                   <div className="min-w-0">
-                    <span className="inline-block rounded-md border border-brand-line bg-brand-soft px-1.5 py-0.5 text-[11px] font-bold text-brand-strong">
+                    <span className="inline-block rounded-md border border-brand-line bg-brand-soft px-1.5 py-0.5 text-[11px] leading-tight font-bold text-brand-strong">
                       {member.badge}
                     </span>
-                    <h3 className="mt-1.5 text-lg font-bold">{member.nameTh}</h3>
+                    <h3 className="mt-1.5 text-base font-bold sm:text-lg">
+                      {/* Thai has no spaces between syllables, so keep each name word whole and wrap only at spaces. */}
+                      {member.nameTh.split(' ').map((word, w) => (
+                        <Fragment key={word}>
+                          {w > 0 && ' '}
+                          <span className="whitespace-nowrap">{word}</span>
+                        </Fragment>
+                      ))}
+                    </h3>
                     <p className="text-sm text-muted">{member.nameEn}</p>
+                    <p className="mt-2 text-sm font-semibold text-ink">{member.roleTh}</p>
                   </div>
                 </div>
 
-                <p className="mt-5 font-semibold text-ink">{member.roleTh}</p>
-                <p className="mt-1 flex gap-2 text-sm text-body">
+                <p className="mt-5 flex gap-2 text-sm text-body">
                   <Building2 className="mt-1 h-4 w-4 shrink-0 text-brand" />
                   <span>
                     {member.affiliationTh}

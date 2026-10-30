@@ -32,8 +32,8 @@ export const TEAM = [
     nameTh: RESEARCHER.nameTh,
     nameEn: RESEARCHER.nameEn,
     roleTh: 'ผู้พัฒนาระบบหลักและนักวิจัย',
-    affiliationTh: INSTITUTION.nameTh,
-    affiliationEn: 'SIIT, Thammasat University',
+    affiliationTh: 'ภาควิชา ICT สถาบันเทคโนโลยีนานาชาติสิรินธร (SIIT) มหาวิทยาลัยธรรมศาสตร์',
+    affiliationEn: 'ICT Department, SIIT, Thammasat University',
     duties: [
       'นักศึกษาปริญญาเอก ผู้รับผิดชอบโครงการวิจัย',
       'ออกแบบและพัฒนาระบบ Pudding ทั้งเว็บไซต์ LINE Bot และ LIFF',
@@ -41,6 +41,7 @@ export const TEAM = [
       'ผู้ควบคุมข้อมูลส่วนบุคคลของโครงการ',
     ],
     email: CONTACT_EMAIL,
+    photo: '/team/chutipon.webp',
     primary: true,
   },
   {
@@ -52,6 +53,7 @@ export const TEAM = [
     affiliationEn: 'ICT Department, SIIT, Thammasat University',
     duties: ['ให้คำปรึกษาและกำกับดูแลงานวิจัยของโครงการ'],
     email: 'sasiporn.us@siit.tu.ac.th',
+    photo: '/team/sasiporn.webp',
     primary: false,
   },
   {
@@ -67,6 +69,7 @@ export const TEAM = [
       'ประสานงานกับสถานศึกษาและครูผู้สอนท่านอื่น',
     ],
     email: 'tippanan.jan@srtc.ac.th',
+    photo: '/team/tippanan.webp',
     primary: false,
   },
 ]
