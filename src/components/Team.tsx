@@ -86,8 +86,8 @@ export default function Team() {
               <Building2 className="h-7 w-7" />
             </div>
             <div className="space-y-3">
-              <p className="flex gap-2 text-ink">
-                <MapPin className="mt-1 h-4 w-4 shrink-0 text-brand" />
+              <p className="flex items-center gap-2 text-ink">
+                <MapPin className="h-4 w-4 shrink-0 text-brand" />
                 <span>
                   <strong>
                     {INSTITUTION.nameTh} {INSTITUTION.campus}
@@ -96,8 +96,8 @@ export default function Team() {
                   <span className="text-body">{INSTITUTION.address}</span>
                 </span>
               </p>
-              <p className="flex gap-2 text-sm text-body">
-                <Clock className="mt-1 h-4 w-4 shrink-0 text-brand" />
+              <p className="flex items-center gap-2 text-sm text-body">
+                <Clock className="h-4 w-4 shrink-0 text-brand" />
                 เวลาทำการ: {INSTITUTION.hours}
               </p>
             </div>
