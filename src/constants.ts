@@ -33,7 +33,7 @@ export const TEAM = [
     nameEn: RESEARCHER.nameEn,
     roleTh: 'ผู้พัฒนาระบบหลักและนักวิจัย',
     affiliationTh: 'ภาควิชา ICT สถาบันเทคโนโลยีนานาชาติสิรินธร (SIIT) มหาวิทยาลัยธรรมศาสตร์',
-    affiliationEn: 'ICT Department, SIIT, Thammasat University',
+    affiliationEn: 'School of ICT, SIIT, Thammasat University',
     duties: [
       'นักศึกษาปริญญาเอก ผู้รับผิดชอบหลักของโครงการวิจัย',
       'ออกแบบและพัฒนาระบบ Pudding ทั้งเว็บไซต์ LINE Bot และ LIFF',
@@ -50,7 +50,7 @@ export const TEAM = [
     nameEn: 'Asst. Prof. Sasiporn Usanavasin',
     roleTh: 'อาจารย์ที่ปรึกษางานวิจัย',
     affiliationTh: 'ภาควิชา ICT สถาบันเทคโนโลยีนานาชาติสิรินธร (SIIT) มหาวิทยาลัยธรรมศาสตร์',
-    affiliationEn: 'ICT Department, SIIT, Thammasat University',
+    affiliationEn: 'School of ICT, SIIT, Thammasat University',
     duties: [
       'ให้คำปรึกษาและกำกับดูแลงานวิจัยของโครงการ',
       'ให้คำแนะนำด้านระเบียบวิธีวิจัยและการออกแบบการทดลอง',
