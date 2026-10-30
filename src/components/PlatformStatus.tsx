@@ -62,9 +62,9 @@ export default function PlatformStatus() {
               </div>
 
               <h3 className="mt-6 text-xl font-bold">ความสามารถที่เปิดให้ใช้งานแล้ว</h3>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-4 grid grid-cols-2 gap-3">
                 {CAPABILITIES.map(({ icon: Icon, label }) => (
-                  <li key={label} className="flex items-center gap-3 rounded-2xl border border-line bg-surface p-4">
+                  <li key={label} className="flex flex-col items-start gap-2 rounded-2xl border border-line bg-surface p-3 sm:flex-row sm:items-center sm:gap-3 sm:p-4">
                     <Icon className="h-5 w-5 shrink-0 text-brand" />
                     <span className="text-sm font-medium text-ink">{label}</span>
                   </li>

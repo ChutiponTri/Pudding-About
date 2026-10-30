@@ -1,5 +1,6 @@
 import { Building2, Clock, Mail, MapPin, UserRound } from 'lucide-react'
 import { INSTITUTION, TEAM } from '../constants.ts'
+import { swipeItem, swipeRow } from './swipe.ts'
 import { Reveal, SectionHeading } from './ui.tsx'
 
 const AVATAR_STYLES = [
@@ -18,15 +19,15 @@ export default function Team() {
           description="ผู้รับผิดชอบโครงการ อาจารย์ที่ปรึกษา และผู้ช่วยโครงการจากสถานศึกษาที่ร่วมทดลองใช้ระบบ"
         />
 
-        <div className="grid gap-6 lg:grid-cols-3">
+        <div className={`${swipeRow('lg')} lg:grid-cols-3 lg:gap-6`}>
           {TEAM.map((member, i) => (
-            <Reveal key={member.email} delay={i * 0.08}>
+            <Reveal key={member.email} delay={i * 0.08} className={swipeItem('lg')}>
               <article
                 className={`flex h-full flex-col rounded-3xl border bg-surface p-7 shadow-sm ${
                   member.primary ? 'border-brand-line ring-1 ring-amber-400/30' : 'border-line'
                 }`}
               >
-                <div className="flex items-start gap-4">
+                <div className="flex flex-col items-start gap-3 sm:flex-row sm:gap-4">
                   <div className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl ${AVATAR_STYLES[i]}`}>
                     <UserRound className="h-7 w-7" />
                   </div>
@@ -74,7 +75,7 @@ export default function Team() {
 
         <Reveal delay={0.1}>
           <article className="mt-6 grid gap-6 rounded-3xl border border-line bg-surface p-7 shadow-sm md:grid-cols-[auto_1fr_auto] md:items-center">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-soft text-brand-strong">
+            <div className="hidden h-14 w-14 items-center justify-center rounded-2xl bg-brand-soft text-brand-strong md:flex">
               <Building2 className="h-7 w-7" />
             </div>
             <div className="space-y-3">

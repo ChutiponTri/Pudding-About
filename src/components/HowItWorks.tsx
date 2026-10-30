@@ -1,5 +1,4 @@
 import {
-  ArrowDown,
   ArrowRight,
   BookOpen,
   ClipboardCheck,
@@ -14,6 +13,7 @@ import {
   type LucideIcon,
 } from 'lucide-react'
 import { Fragment } from 'react'
+import { swipeItem, swipeRow } from './swipe.ts'
 import { Reveal, SectionHeading } from './ui.tsx'
 
 type Place = 'LINE' | 'กลุ่ม LINE' | 'Web UI' | 'LINE LIFF'
@@ -80,13 +80,13 @@ export default function HowItWorks() {
           description="ครูจัดการทุกอย่างบนเว็บไซต์ ส่วนนักเรียนรับประกาศและทำงานได้ภายในแอป LINE ที่ใช้อยู่ทุกวัน"
         />
 
-        <div className="grid gap-6 lg:grid-cols-[1.6fr_1fr]">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.6fr_1fr]">
           <Reveal>
             <article className="h-full rounded-3xl border border-line bg-surface p-6 shadow-sm sm:p-8">
               <PhaseTitle n={1} title="ตั้งค่าห้องเรียน" who="ครูทำครั้งแรกครั้งเดียว" />
-              <ol className="grid gap-4 sm:grid-cols-2">
+              <ol className={`${swipeRow('sm', 'card')} sm:grid-cols-2 sm:gap-4`}>
                 {SETUP.map(({ icon: Icon, place, title, body }, i) => (
-                  <li key={title} className="flex gap-3 rounded-2xl bg-canvas p-4">
+                  <li key={title} className={`flex gap-3 rounded-2xl bg-canvas p-4 ${swipeItem('sm')}`}>
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface text-brand shadow-sm">
                       <Icon className="h-5 w-5" />
                     </div>
@@ -127,16 +127,15 @@ export default function HowItWorks() {
                 <RefreshCw className="h-3.5 w-3.5 text-brand" /> วนซ้ำทุกครั้งที่สั่งงาน
               </span>
             </div>
-            <ol className="flex flex-col items-stretch gap-2 lg:flex-row lg:items-center">
+            <ol className="-mx-6 flex snap-x snap-mandatory scroll-px-6 items-stretch gap-2 overflow-x-auto overflow-y-hidden px-6 pt-1 pb-4 [scrollbar-width:none] sm:-mx-8 sm:scroll-px-8 sm:px-8 lg:mx-0 lg:items-center lg:overflow-visible lg:px-0 lg:py-0 [&::-webkit-scrollbar]:hidden">
               {LOOP.map(({ icon: Icon, actor, place, title, body }, i) => (
                 <Fragment key={title}>
                   {i > 0 && (
-                    <li aria-hidden="true" className="flex justify-center text-amber-500">
-                      <ArrowDown className="h-5 w-5 lg:hidden" />
-                      <ArrowRight className="hidden h-5 w-5 lg:block" />
+                    <li aria-hidden="true" className="flex shrink-0 items-center justify-center text-amber-500">
+                      <ArrowRight className="h-5 w-5" />
                     </li>
                   )}
-                  <li className="flex-1 rounded-2xl bg-canvas p-4">
+                  <li className="w-[78%] max-w-xs flex-none snap-start rounded-2xl bg-canvas p-4 lg:w-auto lg:max-w-none lg:flex-1">
                     <div className="flex items-center justify-between gap-2">
                       <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-surface text-brand shadow-sm">
                         <Icon className="h-5 w-5" />

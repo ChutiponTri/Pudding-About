@@ -56,7 +56,7 @@ export const TEAM = [
   },
   {
     badge: 'Project Assistant',
-    nameTh: 'ธิปนรรจ์ จันทร์แก้ว',
+    nameTh: 'นางสาวธิปนรรจ์ จันทร์แก้ว',
     nameEn: 'Tippanan Jankaew',
     roleTh: 'ผู้ช่วยโครงการ / ครูผู้สอน',
     affiliationTh: 'วิทยาลัยเทคนิคสุราษฎร์ธานี',

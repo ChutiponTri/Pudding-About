@@ -30,7 +30,7 @@ export default function Research() {
           description="การวิจัยที่เชื่อมโยงเทคโนโลยีปัญญาประดิษฐ์เข้ากับการประเมินผลการเรียนรู้ในบริบทของประเทศไทย"
         />
 
-        <div className="grid gap-8 lg:grid-cols-[1fr_1.4fr]">
+        <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_1.4fr]">
           <Reveal>
             <div className="relative h-full overflow-hidden rounded-3xl bg-linear-to-br from-amber-600 via-amber-500 to-yellow-400 p-8 text-slate-950 shadow-lg shadow-amber-500/20">
               <div className="absolute -top-16 -right-16 h-48 w-48 rounded-full bg-white/20" />
@@ -49,10 +49,10 @@ export default function Research() {
             </div>
           </Reveal>
 
-          <div className="space-y-4">
+          <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto overflow-y-hidden px-4 pt-1 pb-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:block lg:space-y-4 lg:overflow-visible lg:px-0 lg:py-0 [&::-webkit-scrollbar]:hidden">
             {PILLARS.map(({ icon: Icon, title, body }, i) => (
-              <Reveal key={title} delay={i * 0.08}>
-                <article className="flex gap-5 rounded-3xl border border-line bg-surface p-6 shadow-sm">
+              <Reveal key={title} delay={i * 0.08} className="w-[85%] max-w-sm shrink-0 snap-start lg:w-auto lg:max-w-none">
+                <article className="flex h-full flex-col gap-4 rounded-3xl sm:flex-row sm:gap-5 border border-line bg-surface p-6 shadow-sm">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand-strong">
                     <Icon className="h-6 w-6" />
                   </div>
