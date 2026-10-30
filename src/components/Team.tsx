@@ -75,9 +75,6 @@ export default function Team() {
                   <Mail className="h-4 w-4 shrink-0" />
                   {member.email}
                 </a>
-                {member.primary && (
-                  <span className="mt-1 text-xs text-muted">ช่องทางติดต่อหลัก (Verification Primary Contact)</span>
-                )}
               </article>
             </RevealItem>
           ))}
