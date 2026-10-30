@@ -1,6 +1,6 @@
 import { BrainCircuit, ClipboardList, ListChecks } from 'lucide-react'
 import { swipeItem, swipeRow } from './swipe.ts'
-import { Reveal, SectionHeading } from './ui.tsx'
+import { RevealItem, RevealRow, SectionHeading } from './ui.tsx'
 
 const FEATURES = [
   {
@@ -39,9 +39,9 @@ export default function Features() {
           title="เครื่องมือการเรียนรู้ที่อยู่ใน LINE ของคุณ"
           description="ออกแบบให้ครูและนักเรียนใช้งานได้ทันทีผ่านช่องทางที่คุ้นเคย"
         />
-        <div className={`${swipeRow('md')} md:grid-cols-3 md:gap-6`}>
-          {FEATURES.map(({ icon: Icon, title, badge, description, points, accent }, i) => (
-            <Reveal key={title} delay={i * 0.08} className={swipeItem('md')}>
+        <RevealRow bp="md" className={`${swipeRow('md')} md:grid-cols-3 md:gap-6`}>
+          {FEATURES.map(({ icon: Icon, title, badge, description, points, accent }) => (
+            <RevealItem key={title} className={swipeItem('md')}>
               <article className="group h-full rounded-3xl border border-line bg-canvas p-7 transition hover:-translate-y-1 hover:border-amber-300 dark:hover:border-amber-700 hover:bg-surface hover:shadow-xl hover:shadow-amber-500/10">
                 <div className={`flex h-12 w-12 items-center justify-center rounded-2xl ${accent}`}>
                   <Icon className="h-6 w-6" />
@@ -62,9 +62,9 @@ export default function Features() {
                   ))}
                 </ul>
               </article>
-            </Reveal>
+            </RevealItem>
           ))}
-        </div>
+        </RevealRow>
       </div>
     </section>
   )

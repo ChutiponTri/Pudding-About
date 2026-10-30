@@ -2,7 +2,7 @@ import { ArrowRight, FileText, ShieldCheck } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { CONTACT_EMAIL } from '../constants.ts'
 import { swipeItem, swipeRow } from './swipe.ts'
-import { Reveal, SectionHeading } from './ui.tsx'
+import { RevealItem, RevealRow, SectionHeading } from './ui.tsx'
 
 const DOCS = [
   {
@@ -39,9 +39,9 @@ export default function LegalSection() {
           description="เราให้ความสำคัญกับข้อมูลส่วนบุคคลของครูและนักเรียน ตามพระราชบัญญัติคุ้มครองข้อมูลส่วนบุคคล พ.ศ. 2562 (PDPA)"
         />
         <div className="mx-auto max-w-5xl">
-          <div className={`${swipeRow('md')} md:grid-cols-2 md:gap-6`}>
-            {DOCS.map(({ to, icon: Icon, title, subtitle, summary }, i) => (
-              <Reveal key={to} delay={i * 0.08} className={swipeItem('md')}>
+          <RevealRow bp="md" className={`${swipeRow('md')} md:grid-cols-2 md:gap-6`}>
+            {DOCS.map(({ to, icon: Icon, title, subtitle, summary }) => (
+              <RevealItem key={to} className={swipeItem('md')}>
                 <Link
                   to={to}
                   className="group flex h-full flex-col rounded-3xl border border-line bg-surface p-7 shadow-sm transition hover:-translate-y-1 hover:border-amber-300 dark:hover:border-amber-700 hover:shadow-lg"
@@ -68,9 +68,9 @@ export default function LegalSection() {
                     <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
                   </span>
                 </Link>
-              </Reveal>
+              </RevealItem>
             ))}
-          </div>
+          </RevealRow>
         </div>
       </div>
     </section>

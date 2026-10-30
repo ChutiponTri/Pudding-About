@@ -1,6 +1,6 @@
 import { FileImage, GraduationCap, Languages } from 'lucide-react'
 import { INSTITUTION } from '../constants.ts'
-import { Reveal, SectionHeading } from './ui.tsx'
+import { Reveal, RevealItem, RevealRow, SectionHeading } from './ui.tsx'
 
 const PILLARS = [
   {
@@ -49,9 +49,9 @@ export default function Research() {
             </div>
           </Reveal>
 
-          <div className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto overflow-y-hidden px-4 pt-1 pb-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:block lg:space-y-4 lg:overflow-visible lg:px-0 lg:py-0 [&::-webkit-scrollbar]:hidden">
-            {PILLARS.map(({ icon: Icon, title, body }, i) => (
-              <Reveal key={title} delay={i * 0.08} className="w-[85%] max-w-sm shrink-0 snap-start lg:w-auto lg:max-w-none">
+          <RevealRow bp="lg" className="-mx-4 flex snap-x snap-mandatory scroll-px-4 gap-4 overflow-x-auto overflow-y-hidden px-4 pt-1 pb-4 [scrollbar-width:none] sm:-mx-6 sm:scroll-px-6 sm:px-6 lg:mx-0 lg:block lg:space-y-4 lg:overflow-visible lg:px-0 lg:py-0 [&::-webkit-scrollbar]:hidden">
+            {PILLARS.map(({ icon: Icon, title, body }) => (
+              <RevealItem key={title} className="w-[85%] max-w-sm shrink-0 snap-start lg:w-auto lg:max-w-none">
                 <article className="flex h-full flex-col gap-4 rounded-3xl sm:flex-row sm:gap-5 border border-line bg-surface p-6 shadow-sm">
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-soft text-brand-strong">
                     <Icon className="h-6 w-6" />
@@ -61,9 +61,9 @@ export default function Research() {
                     <p className="mt-2 text-body">{body}</p>
                   </div>
                 </article>
-              </Reveal>
+              </RevealItem>
             ))}
-          </div>
+          </RevealRow>
         </div>
       </div>
     </section>

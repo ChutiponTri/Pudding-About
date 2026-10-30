@@ -2,7 +2,7 @@ import { Building2, Clock, Mail, MapPin } from 'lucide-react'
 import { Fragment } from 'react'
 import { INSTITUTION, TEAM } from '../constants.ts'
 import { swipeItem, swipeRow } from './swipe.ts'
-import { Reveal, SectionHeading } from './ui.tsx'
+import { Reveal, RevealItem, RevealRow, SectionHeading } from './ui.tsx'
 
 export default function Team() {
   return (
@@ -14,9 +14,9 @@ export default function Team() {
           description="ผู้รับผิดชอบโครงการ อาจารย์ที่ปรึกษา และผู้ช่วยโครงการจากสถานศึกษาที่ร่วมทดลองใช้ระบบ"
         />
 
-        <div className={`${swipeRow('lg')} lg:grid-cols-3 lg:gap-6`}>
-          {TEAM.map((member, i) => (
-            <Reveal key={member.email} delay={i * 0.08} className={swipeItem('lg')}>
+        <RevealRow bp="lg" className={`${swipeRow('lg')} lg:grid-cols-3 lg:gap-6`}>
+          {TEAM.map((member) => (
+            <RevealItem key={member.email} className={swipeItem('lg')}>
               <article
                 className={`flex h-full flex-col rounded-3xl border bg-surface p-7 shadow-sm ${
                   member.primary ? 'border-brand-line ring-1 ring-amber-400/30' : 'border-line'
@@ -79,9 +79,9 @@ export default function Team() {
                   <span className="mt-1 text-xs text-muted">ช่องทางติดต่อหลัก (Verification Primary Contact)</span>
                 )}
               </article>
-            </Reveal>
+            </RevealItem>
           ))}
-        </div>
+        </RevealRow>
 
         <Reveal delay={0.1}>
           <article className="mt-6 grid gap-6 rounded-3xl border border-line bg-surface p-7 shadow-sm md:grid-cols-[auto_1fr_auto] md:items-center">
