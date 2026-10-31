@@ -26,7 +26,7 @@ export default function Hero() {
           </p>
 
           <h1 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl lg:leading-[1.25]">
-            <span className="bg-linear-to-tr from-amber-600 via-amber-500 to-yellow-400 bg-clip-text text-transparent">Pudding</span> —
+            <span className="bg-linear-to-tr from-amber-600 via-amber-500 to-yellow-400 bg-clip-text text-transparent">Pudding</span>
             <br /> แพลตฟอร์มอัจฉริยะเพื่อการจัดการเรียนรู้ผ่าน{' '}
             <span className="relative whitespace-nowrap">
               <span className="relative z-10">LINE</span>
