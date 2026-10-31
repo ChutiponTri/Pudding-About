@@ -10,7 +10,7 @@ const PAGE_TITLES: Record<string, string> = {
   '/privacy': 'นโยบายความเป็นส่วนตัว | Pudding',
   '/terms': 'ข้อกำหนดและเงื่อนไขการใช้งาน | Pudding',
 }
-const DEFAULT_TITLE = 'Pudding — แพลตฟอร์มอัจฉริยะเพื่อการเรียนรู้ | SIIT มหาวิทยาลัยธรรมศาสตร์'
+const DEFAULT_TITLE = 'Pudding - แพลตฟอร์มอัจฉริยะเพื่อการเรียนรู้ | SIIT มหาวิทยาลัยธรรมศาสตร์'
 
 function useRouteEffects() {
   const { pathname, hash } = useLocation()
