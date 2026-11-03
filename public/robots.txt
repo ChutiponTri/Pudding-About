@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://about.pudding-p.com/sitemap.xml
