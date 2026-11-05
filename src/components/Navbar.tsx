@@ -46,7 +46,7 @@ export default function Navbar() {
           {/* Two hand-split lines of similar width: Thai has no spaces to wrap on. */}
           <p
             title="ระบบจัดการการเรียนรู้และตรวจประเมินอัจฉริยะ"
-            className="hidden flex-col justify-center self-center whitespace-nowrap border-l border-slate-200 pl-3 text-[11px] font-medium leading-[1.45] text-slate-500 md:flex dark:border-slate-700 dark:text-slate-400"
+            className="flex min-w-0 flex-col justify-center self-center whitespace-nowrap border-l border-slate-200 pl-2.5 text-[10px] font-medium leading-[1.45] text-slate-500 sm:pl-3 sm:text-[11px] dark:border-slate-700 dark:text-slate-400"
           >
             <span>ระบบจัดการการเรียนรู้</span>
             <span>และตรวจประเมินอัจฉริยะ</span>
