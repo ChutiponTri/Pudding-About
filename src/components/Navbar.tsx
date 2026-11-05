@@ -37,7 +37,7 @@ export default function Navbar() {
               </span>
             </span>
             <span className="line-clamp-1 hidden text-[11px] font-medium text-muted min-[420px]:block">
-              ระบบจัดการ Assignment & Quiz
+              ระบบจัดการการบ้านและควิซผ่าน LINE
             </span>
           </span>
         </Link>
