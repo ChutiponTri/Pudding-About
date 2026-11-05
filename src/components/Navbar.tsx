@@ -4,7 +4,6 @@ import { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { APP_URL, NAV_LINKS } from '../constants.ts'
 import ThemeToggle from './ThemeToggle.tsx'
-import { PuddingLogo } from './ui.tsx'
 
 const ctaClass =
   'items-center gap-1.5 rounded-full bg-amber-500 font-bold text-slate-950 shadow-sm shadow-amber-500/30 transition-all hover:bg-amber-400 active:scale-[0.98]'
@@ -25,21 +24,33 @@ export default function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-colors supports-[backdrop-filter]:bg-white/65 dark:border-slate-800/80 dark:bg-slate-950/75 dark:supports-[backdrop-filter]:bg-slate-950/60">
+    <header className="sticky top-0 z-50 w-full border-b border-slate-200/70 bg-white/80 pt-[env(safe-area-inset-top)] backdrop-blur-xl transition-colors supports-backdrop-filter:bg-white/65 dark:border-slate-800/80 dark:bg-slate-950/75 dark:supports-[backdrop-filter]:bg-slate-950/60">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-2 px-3 sm:gap-4 sm:px-6 lg:px-8">
-        <Link to="/" className="group flex min-w-0 items-center gap-2.5 sm:gap-3" onClick={() => setOpen(false)}>
-          <PuddingLogo />
-          <span className="min-w-0">
-            <span className="flex items-center gap-1.5">
-              <span className="truncate text-base font-black tracking-tight text-ink sm:text-lg">Pudding</span>
-              <span className="hidden rounded-md border border-brand-line bg-brand-soft px-1.5 py-0.5 text-[10px] font-bold text-amber-800 sm:inline-block sm:text-[11px] dark:text-amber-300">
-                Platform
-              </span>
-            </span>
-            <span className="line-clamp-1 hidden text-[11px] font-medium text-muted min-[420px]:block">
-              ระบบจัดการการบ้านและควิซผ่าน LINE
-            </span>
-          </span>
+        <Link
+          to="/"
+          aria-label="พุดดิ้ง หน้าหลัก"
+          className="group flex min-w-0 items-center gap-3"
+          onClick={() => setOpen(false)}
+        >
+          <img
+            src="/brand/logo-th.png"
+            alt=""
+            aria-hidden="true"
+            width={520}
+            height={480}
+            decoding="async"
+            fetchPriority="high"
+            draggable={false}
+            className="h-11 w-auto shrink-0 select-none transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-2 sm:h-12"
+          />
+          {/* Two hand-split lines of similar width: Thai has no spaces to wrap on. */}
+          <p
+            title="ระบบจัดการการเรียนรู้และตรวจประเมินอัจฉริยะ"
+            className="hidden flex-col justify-center self-center whitespace-nowrap border-l border-slate-200 pl-3 text-[11px] font-medium leading-[1.45] text-slate-500 md:flex dark:border-slate-700 dark:text-slate-400"
+          >
+            <span>ระบบจัดการการเรียนรู้</span>
+            <span>และตรวจประเมินอัจฉริยะ</span>
+          </p>
         </Link>
 
         <ul className="hidden items-center gap-0.5 xl:flex">
