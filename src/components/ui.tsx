@@ -112,13 +112,17 @@ export function SectionHeading({
 }
 
 export function PuddingLogo({ size = 'md' }: { size?: 'md' | 'lg' }) {
-  const box = size === 'lg' ? 'h-11 w-11 text-2xl' : 'h-9 w-9 text-xl sm:h-10 sm:w-10 sm:text-2xl'
+  const box = size === 'lg' ? 'h-14 w-14' : 'h-11 w-11 sm:h-12 sm:w-12'
   return (
-    <span
+    <img
+      src="/logo-160.png"
+      alt=""
       aria-hidden="true"
-      className={`flex shrink-0 items-center justify-center rounded-2xl bg-linear-to-tr from-amber-600 via-amber-500 to-yellow-400 shadow-md shadow-amber-500/25 transition-all duration-300 group-hover:scale-105 group-hover:-rotate-3 ${box}`}
-    >
-      <span className="transition-transform select-none group-hover:scale-110">🍮</span>
-    </span>
+      width={160}
+      height={160}
+      decoding="async"
+      draggable={false}
+      className={`shrink-0 object-contain drop-shadow-sm transition-transform duration-300 select-none group-hover:scale-105 group-hover:-rotate-3 ${box}`}
+    />
   )
 }
