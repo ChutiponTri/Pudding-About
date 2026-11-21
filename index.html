@@ -14,15 +14,7 @@
     <meta name="author" content="Chutipon Trirattananurak (SIIT, Thammasat University)" />
     <meta name="theme-color" content="#f59e0b" />
     <link rel="canonical" href="https://about.pudding-p.com/" />
-    <script>
-      // Apply the saved or system theme before first paint to avoid a light flash.
-      try {
-        const saved = localStorage.getItem('theme')
-        if (saved === 'dark' || (!saved && matchMedia('(prefers-color-scheme: dark)').matches)) {
-          document.documentElement.classList.add('dark')
-        }
-      } catch {}
-    </script>
+    <script src="/theme-init.js"></script>
 
     <!-- Open Graph: preview when the link is shared on Facebook / LINE -->
     <meta property="og:type" content="website" />
